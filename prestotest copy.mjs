@@ -1,8 +1,10 @@
-const bsv = require('bsv');
-const Presto = require('paypresto.js');
+import bsv from 'bsv';
+//import {Presto, embed} from 'paypresto.js'
+import PrestoPkg from 'paypresto.js'
+//import {bsv} from bsvPkg;
+//import {Presto} from 'paypresto.js'
 
 let privateKey = bsv.PrivKey.fromRandom();
-
 let publicKey = bsv.PubKey.fromPrivKey(privateKey);
 let address = bsv.Address.fromPubKey(publicKey);
 
@@ -10,6 +12,9 @@ console.log('PRIVATE KEY: ', privateKey.toWif());
 console.log('PUBLIC KEY:  ', publicKey.toHex());
 console.log('To ADDRESS:  ', address.toString());
 
+
+const Presto = PrestoPkg.Presto;
+//const {Presto} = PrestoPkg;
 const payment = Presto.create({
   // Provide WIF key, or bsv2 PrivKey or KeyPair instance
   key: privateKey.toWIF(),
@@ -31,3 +36,4 @@ payment
   .on('funded', payment => payment.pushTx())
   .on('success', txid => console.log("*success", txid)/* fired when tx successfully sent */)
   .on('error', err => console.log("*Error ", err)/* fired when error is encountered */)
+  
