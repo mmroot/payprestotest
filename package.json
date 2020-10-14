@@ -1,0 +1,17 @@
+{
+  "name": "payprestotest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "prestotest.js",
+  "dependencies": {
+    "bsv": "^2.0.0-beta.43",
+    "paypresto.js": "^0.1.0-beta.6",
+    "txforge": "^0.1.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
